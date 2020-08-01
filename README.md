@@ -7,11 +7,9 @@ HOW IT WORKS:
 Information Given:
         The Humidity of the city,
         The Temparature, and
-        The Predicted forecast
+        The Predicted forecast.
 
 Future Development:
-        Gathering a five day forecast
-        Gathering user specific location
-        Using Langitude Longitude to gather more acurate forecast predictions
+    The vision for the future includes being able to provide a five day forecast for users. There is also a call for improving the accuracy of THE Weather App using longitude & latitude coordinates.
     
 # Weather-Dashboard
