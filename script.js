@@ -1,4 +1,4 @@
-//var location = $(".search-bar").attr("placeholder")
+//$(document).ready(function () {
 
 
 //This is the query for the openweatherAPI Phoenix
@@ -11,31 +11,20 @@ function query(location) {
         url: queryUrl,
         method: "GET",
     }).then(function (response) {
-        var temp = (response.main.temp + "°F")
-        var humid = (" " + response.main.humidity)
+        console.log(response)
+        var temp = ("°F " + response.main.temp + "\n")
+        var humid = (" " + response.main.humidity + "\n")
         var city = response.name
         currentweather(temp, humid, city)
-
-        // queryUrl = "https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
-        // console.log(queryUrl)
-
-        // $.ajax({
-        //     url: queryUrl,
-        //     method: "GET"
-        // }).then(function (response) {
-        //     console.log(response.name)
-        // })
-
-
     })
 }
 
 
 //This is a function to get the most popular cities
-$("a").click(function () {
+$(".popular").click(function () {
     let city = $(this).text()
     var search = query(city)
-    console.log(city)
+    console.log(search)
 })
 
 
@@ -43,13 +32,13 @@ function currentweather(temp, humid, city, date) {
     $(".city").empty();
     $(".city").append(city);
     $(".city").append("  ")
-    console.log(city)
+    console.log("Name of the city: " + city)
 
     $(".humidity").empty();
     $(".humidity").append(" ")
     $(".humidity").append(humid);
     $(".humidity").append(" ")
-    console.log(humid)
+    console.log("Humidity: " + humid)
 
     $(".date").empty();
     $(".date").append(" ")
@@ -57,8 +46,13 @@ function currentweather(temp, humid, city, date) {
     $(".temp").empty();
     $(".temp").append(temp);
     $(".temp").append(" ")
-    console.log(temp)
-
-
-
+    console.log("This is the current temp: " + temp)
 }
+
+//This should handle the click from the search
+$(".search-bar").on('click', function () {
+    event.preventDefault()
+    var search = $(".btn").val();
+    query(search)
+})
+//})
