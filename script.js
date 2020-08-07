@@ -3,7 +3,7 @@
 
 //This is the query for the openweatherAPI Phoenix
 function query(location) {
-    var apiKey = "b251b6b758e9775099f0a7a313ce857b";
+    var apiKey = "19c30c0dab07e321f0f5bc97cbf8c46c";
     var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&units=imperial&appid=" + apiKey
 
 
@@ -12,6 +12,7 @@ function query(location) {
         method: "GET",
     }).then(function (response) {
         console.log(response)
+        console.log(temp)
         var temp = ("°F " + response.main.temp + "\n")
         var humid = (" " + response.main.humidity + "\n")
         var city = response.name
@@ -55,4 +56,3 @@ $(".search-bar").on('click', function () {
     var search = $(".btn").val();
     query(search)
 })
-//})
